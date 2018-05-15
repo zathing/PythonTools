@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+  <h2 style="float:left"><strong>Log Parser Result</strong></h2>
+  <div align="left">
+    <table class="bordered">
+      <tr>
+        <th>CaseID</th>
+        <td colspan="3"><strong>{{ source_file }}</strong></td>
+      </tr>
+      <tr>
+        <th><strong>Logs</strong></th>
+        <td><pre>{{ log_contents }}</pre></td>
+      </tr>
+    </table>
+  </div>
+  </body>
+{% endblock %}

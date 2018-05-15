@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<title>Log Parser Report Index</title>
+<body>
+  <h1>Log Parser Report Index</h1>
+  <ul>
+    {% for file in files %}
+    <li><a href="report/{{ file }}">{{ file }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+{% endblock%}
