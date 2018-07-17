@@ -1,0 +1,52 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}LogParser2018{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">LogParser2018</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                {% if user.is_authenticated %}
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link">{{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="{% url 'logout' %}">Log out</a>
+                        </li>
+                    </ul>
+                {% else %}
+                    <form class="form-inline ml-auto">
+                        <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
+                        <a href="{% url 'signup' %}" class="btn btn-primary ml-2">Sign up</a>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <ol class="breadcrumb my-4">
+            {% block breadcrumb %}
+            {% endblock %}
+        </ol>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="push"></div>
+</div>
+<footer>
+    <div class="container" style="text-align: center">
+        <a rel="nofollow noopener" target="_blank">©2018  TrendMicro CDC</a>
+    </div>
+</footer>
+</body>
+</html>
