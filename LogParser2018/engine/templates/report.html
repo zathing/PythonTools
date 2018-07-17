@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+  <div align="left">
+    <table class="bordered">
+      <tr>
+        <th>CaseID</th>
+        <td colspan="3"><strong>{{ source_file }}</strong></td>
+      </tr>
+      <tr>
+        <th><strong>Logs</strong></th>
+        <td><pre>{{ log_contents }}</pre></td>
+      </tr>
+    </table>
+  </div>
+  </body>
+<script src="../jquery-1.12.2.js"></script>
+<script>
+    function del(obj) {
+        var data = $(obj);
+        $(data[0].nextElementSibling).css('text-decoration','line-through');
+    }
+</script>
+{% endblock %}
